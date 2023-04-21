@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head><title>classification</title>
+<style>
+* {
+  box-sizing: border-box;
+
+}
+
+body {
+  font-family: Arial;
+  padding: 10px;
+  background: grey;
+}
+
+/* Header/Blog Title */
+.header {
+  padding: 10px;
+  text-align: center;
+  background: black;
+  color:white;
+
+}
+.p {color:white;
+font-family: cooper black;}
+
+.header h1 {
+    font-family:cooper black;
+  font-size: 80px;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  height:60px;
+  overflow: hidden;
+  background-color: #aaa;
+  font-size:17px;
+}
+
+/* Style the topnav links */
+.topnav a {
+  width: 20%;
+  float: left;
+  display: block;
+  font-family:cooper black;
+  color: black;
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 0px 15px 5px 15px;
+  text-decoration: none;
+  background-color: green;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: black;
+  color: white;
+}
+
+.menubar {
+
+  background-color: black;
+  height: 40px;
+  text-align: center;
+  padding: 14px;
+  font-family: cooper black;
+  font-size: 20px;
+}
+
+/* Style the topnav links */
+
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {
+  float: left;
+  width: 25%;
+  background-color: #f1f1f1;
+  padding-left: 2px ;
+  padding-right: 2px ;
+  padding-top: 12px ;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 75%;
+  background-color: #f1f1f1 ;
+  padding: 12px 2px 12px 12px;
+}
+
+/* Fake image */
+.fakeimgs {
+
+  background-color: white;
+  color: black;
+  width: 100%;
+  padding: 20px;
+  height:auto;
+  width:auto;
+  text-align:center;
+  font-family:cooper black;
+  font-size:20px;
+  border-style: solid yellow;
+}
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+/* Add a card effect for articles */
+.card {
+  background-color: #0000A0;
+  padding: 20px;
+  margin-top: 20px;
+}
+.cardy {
+  background-color: #f1f1f1;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.cards {
+  background-color: green;
+  padding: 1px;
+  margin-top: 4px;
+  height:70px;
+
+}
+.cards a {
+color:white;}
+
+.cards a:hover {
+
+  color: yellow;
+}
+.cardss {
+  background-color: #aaa;
+  padding: 1px;
+  margin-top: 4px;
+  height:60px;
+
+}
+.cardss a {
+color:black;}
+
+.cardss a:hover {
+
+  color: yellow;
+}
+
+a {text-decoration: none;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: navy;
+  margin-top: 20px;
+  color:white;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+.open-button {
+  background-color: #00FFFF;
+  color: black;
+  font-size:20px;
+  padding: 16px 20px;
+  border: solid black;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 180px;
+  font-family:cooper black;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 5px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 400px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=number], .form-container input[type=password] {
+  width: 100%;
+  padding: 14px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=number]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #4CAF50;
+
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:5px;
+  opacity: 0.8;
+  color:black;
+  font-size:15px;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+  color:black;
+  font-size:15px;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+input[type=text], input[type=number] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 4px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+  color:black;
+  font-size:30px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 20%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)}
+  to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+  from {transform: scale(0)}
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+ blink {
+        animation: blinker 0.6s linear infinite;
+        color: #1c87c9;
+       }
+      @keyframes blinker {
+        50% { opacity: 0; }
+       }
+.blink-one {
+         animation: blinker-one 1s linear infinite;
+       }
+       @keyframes blinker-one {
+         0% { opacity: 0; }
+       }
+
+ table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 25%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<div class="header" >
+    <img src="/static/app2.jpg" style="margin:auto; width:100%;" />
+</div>
+
+<div class="topnav">
+
+    <a href="{{url_for('homed')}}"><h4 style="text-align:center;">Home</h4></a><a href="{{url_for('algo')}}" ><h4 style="text-align:center;">Algorithm</h4></a>
+     <a href="{{url_for('upload_page_feat')}}" ><h4 style="text-align:center;color:white;">Feature Selection</h4></a>
+     <a href="{{url_for('upload_page_class')}}" ><h4 style="text-align:center;">Classification</h4></a>
+    <a href="{{url_for('cont')}}" ><h4 style="text-align:center;">Contact</h4></a>
+
+
+
+</div>
+
+<div class="row">
+
+
+
+<div class="cardy">
+<div class="fakeimgs" ><b>Result has been prepared</b></div>
+   </div>
+<div class="fakeimgs" ><a href="{{url_for('download_genus_labels')}}" ><h4 style="text-align:center;">Download the result table of predicted genera</h4></a></div>
+   </div>
+<div class="fakeimgs" ><a href="{{url_for('download_genus_probabilities')}}" ><h4 style="text-align:center;">Download the result table of genus level prediction probabilities</h4></a></div>
+   </div>
+
+
+</div>
+
+<div class="footer">
+ @ 2020 ICAR-Indian Agricultural Statistics Research Institute, Government of India - Library Avenue, PUSA, New Delhi - 110 012 (INDIA)
+</div>
+
+</body>
+</html>
+
